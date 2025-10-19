@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class StringAdd {
 
     private static final String DEFAULT_DELIMITER = ",|:";
-    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\n(.*)");
+    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\\n(.*)");
 
     private StringAdd() {
     }
