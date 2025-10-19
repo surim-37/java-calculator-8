@@ -1,12 +1,5 @@
 package calculator;
 
-<<<<<<< HEAD
-public class Application {
-    public static void main(String[] args) {
-        // TODO: 프로그램 구현
-    }
-}
-=======
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
@@ -18,4 +11,3 @@ public class Application {
     }
 }
 
->>>>>>> f52a522 (입/출력 기능 구현)
