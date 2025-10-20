@@ -7,16 +7,17 @@ import java.util.stream.Stream;
 public class StringAdd {
 
     private static final String DEFAULT_DELIMITER = ",|:";
-    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\\n(.*)");
+    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.)\n(.*)");
 
-    private StringAdd() {
-    }
+    private StringAdd() {}
 
     public static int calculate(String input) {
         if (input == null || input.isEmpty()) {
             return 0;
         }
-        String[] tokens = split(input);
+        // ✅ "\n" 리터럴을 실제 개행으로 정규화
+        String normalized = input.replace("\\n", "\n");
+        String[] tokens = split(normalized);
         return sum(tokens);
     }
 
@@ -25,7 +26,8 @@ public class StringAdd {
         if (matcher.matches()) {
             String customDelimiter = matcher.group(1);
             String numbers = matcher.group(2);
-            return numbers.split(customDelimiter);
+            // ✅ 특수문자 구분자 대응
+            return numbers.split(Pattern.quote(customDelimiter));
         }
         return input.split(DEFAULT_DELIMITER);
     }
@@ -37,4 +39,3 @@ public class StringAdd {
                 .sum();
     }
 }
-
